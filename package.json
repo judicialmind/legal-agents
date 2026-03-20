@@ -1,6 +1,6 @@
 {
   "name": "@judicialmind/legal-agents",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "30 AI-powered legal agent definitions covering practice verticals, functional domains, and jurisdictions & specialties",
   "main": "index.js",
   "types": "index.d.ts",
