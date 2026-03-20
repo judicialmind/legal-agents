@@ -1,8 +1,15 @@
 # The Legal Agency
 
+[![npm version](https://img.shields.io/npm/v/@judicialmind/legal-agents.svg)](https://www.npmjs.com/package/@judicialmind/legal-agents)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 > An open-source, multi-agent framework for AI-native legal practice.
 
 The Legal Agency is a collection of **30 specialized AI agent definitions** organized across 3 divisions, designed to power a comprehensive AI-native legal firm. Each agent is a self-contained markdown file with structured identity, workflows, deliverables, and guardrails — ready for integration into any multi-agent orchestration platform.
+
+```bash
+npm install @judicialmind/legal-agents
+```
 
 ---
 

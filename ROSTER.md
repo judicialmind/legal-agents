@@ -96,4 +96,6 @@ Every agent enforces strict guardrails:
 ---
 
 **Version**: 1.0.0
-**License**: Open Source
+**License**: MIT
+**npm**: [`@judicialmind/legal-agents`](https://www.npmjs.com/package/@judicialmind/legal-agents)
+**Repository**: [github.com/judicialmind/legal-agents](https://github.com/judicialmind/legal-agents)
