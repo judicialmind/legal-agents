@@ -1,0 +1,44 @@
+{
+  "name": "@judicialmind/legal-agents",
+  "version": "1.0.0",
+  "description": "30 AI-powered legal agent definitions covering practice verticals, functional domains, and jurisdictions & specialties",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "practice-verticals/*.md",
+    "functional-domains/*.md",
+    "jurisdictions-specialties/*.md",
+    "ROSTER.md",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "legal",
+    "agents",
+    "ai",
+    "law",
+    "multi-agent",
+    "llm",
+    "legal-tech",
+    "litigation",
+    "compliance",
+    "contract",
+    "due-diligence",
+    "e-discovery"
+  ],
+  "author": "judicialmind <surya@judicialmind.ai>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/judicialmind/legal-agents.git"
+  },
+  "homepage": "https://github.com/judicialmind/legal-agents#readme",
+  "bugs": {
+    "url": "https://github.com/judicialmind/legal-agents/issues"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

@@ -140,9 +140,62 @@ Introduction paragraph
 
 ---
 
-## Usage
+## Installation
 
-These agent definitions are platform-agnostic markdown files. They can be used with:
+```bash
+npm install @judicialmind/legal-agents
+```
+
+## Programmatic Usage (Node.js)
+
+```js
+const { getAgent, listAgents, listDivisions, searchAgents } = require('@judicialmind/legal-agents');
+
+// Get a single agent by slug
+const agent = getAgent('corporate-ma');
+console.log(agent.name);      // "Corporate M&A Counsel"
+console.log(agent.services);  // ["M&A transaction advisory", ...]
+console.log(agent.body);      // Full markdown body
+
+// List all agents in a division
+const litigators = listAgents({ division: 'practice-verticals' });
+console.log(litigators.length); // 12
+
+// List every agent across all divisions
+const all = listAgents();
+console.log(all.length); // 30
+
+// Get available divisions
+const divs = listDivisions();
+// ["practice-verticals", "functional-domains", "jurisdictions-specialties"]
+
+// Search agents by keyword
+const results = searchAgents('arbitration');
+console.log(results.map(a => a.name));
+// ["International Arbitration Counsel"]
+```
+
+### Agent Object Shape
+
+```ts
+interface Agent {
+  id: string;         // file slug, e.g. "corporate-ma"
+  file: string;       // relative path, e.g. "practice-verticals/corporate-ma.md"
+  name: string;       // display name
+  category: string;   // division slug
+  emoji: string;      // icon
+  vibe: string;       // one-line personality
+  services: string[]; // capabilities
+  version: string;    // semver
+  tools: string[];    // allowed tool names
+  body: string;       // markdown body (after frontmatter)
+  raw: string;        // full raw file content
+}
+```
+
+## Direct Usage (without npm)
+
+These agent definitions are platform-agnostic markdown files. They can also be used directly:
 
 - **Multi-agent orchestration frameworks** — load agent files as system prompts for specialized LLM instances
 - **Copilot / VS Code agent mode** — use as `.agent.md` files for custom agent personas
@@ -153,4 +206,4 @@ These agent definitions are platform-agnostic markdown files. They can be used w
 
 ## License
 
-Open Source — see project license for details.
+MIT — see [LICENSE](LICENSE) for details.
