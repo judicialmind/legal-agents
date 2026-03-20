@@ -211,6 +211,28 @@ These agent definitions are platform-agnostic markdown files. They can also be u
 
 ---
 
+## Security
+
+This repository includes automated package hardening checks:
+
+- `npm run audit` — runs npm advisory audit
+- `npm run security:scan-secrets` — scans for common leaked credential patterns
+- `npm run security:pack-check` — verifies forbidden files do not enter npm tarball
+- `npm run security:all` — runs all package safety checks
+
+GitHub Actions workflows:
+
+- `.github/workflows/security.yml` runs on every push and pull request
+- `.github/workflows/release-check.yml` validates release readiness and dry-run publish with provenance
+
+Recommended release posture:
+
+- Use npm Trusted Publishing (OIDC) for production releases
+- Avoid long-lived npm tokens whenever possible
+- Rotate any token immediately if it is ever exposed
+
+---
+
 ## License
 
 MIT — see [LICENSE](LICENSE) for details.

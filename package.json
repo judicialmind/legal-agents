@@ -4,6 +4,12 @@
   "description": "30 AI-powered legal agent definitions covering practice verticals, functional domains, and jurisdictions & specialties",
   "main": "index.js",
   "types": "index.d.ts",
+  "scripts": {
+    "audit": "npm audit --audit-level=low",
+    "security:scan-secrets": "node scripts/scan-secrets.js",
+    "security:pack-check": "node scripts/check-pack.js",
+    "security:all": "npm run security:scan-secrets && npm run security:pack-check"
+  },
   "files": [
     "index.js",
     "index.d.ts",
@@ -32,7 +38,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/judicialmind/legal-agents.git"
+    "url": "git+https://github.com/judicialmind/legal-agents.git"
   },
   "homepage": "https://github.com/judicialmind/legal-agents#readme",
   "bugs": {

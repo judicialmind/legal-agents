@@ -1,0 +1,36 @@
+name: Security Checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  security:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install lockfile only
+        run: npm i --package-lock-only --ignore-scripts
+
+      - name: Run npm audit
+        run: npm run audit
+
+      - name: Secret pattern scan
+        run: npm run security:scan-secrets
+
+      - name: Verify publish tarball contents
+        run: npm run security:pack-check

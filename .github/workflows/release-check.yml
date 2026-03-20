@@ -1,0 +1,36 @@
+name: Release Check
+
+on:
+  workflow_dispatch:
+  release:
+    types: [published]
+
+jobs:
+  verify-package:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://registry.npmjs.org/
+
+      - name: Install lockfile only
+        run: npm i --package-lock-only --ignore-scripts
+
+      - name: Security checks
+        run: npm run security:all
+
+      - name: npm audit
+        run: npm run audit
+
+      - name: Dry-run publish with provenance
+        run: npm publish --dry-run --provenance --access public
